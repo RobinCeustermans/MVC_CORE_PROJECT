@@ -1,0 +1,50 @@
+//service
+  updateSet(title, language, release_year) {
+    const update: Set = {
+      title,
+      language,
+      release_year
+    };
+    return this.supabase.from('set').upsert(update, {
+      returning: 'minimal', //
+    });
+  }
+
+
+//set.page
+async updateSet() {
+    try {
+      await this.supabase.updateSet(this.title, this.language, this.releaseYear);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+//html
+
+<ion-content [fullscreen]='true' >
+
+  <ion-item lines='full' class='ion-margin-top'>
+    <ion-input placeholder='Benoeming' type='text'
+               [(ngModel)]="title"></ion-input>
+  </ion-item>
+
+
+  <ion-item class='ion-margin-top'>
+    <ion-input  placeholder='Taal' type='text'
+                [(ngModel)]="language"></ion-input>
+  </ion-item>
+
+  <ion-item lines='full' class='ion-margin-top'>
+    <ion-input  placeholder='Jaar Uitgave' type='text'
+               [(ngModel)]="releaseYear"></ion-input>
+  </ion-item>
+
+  <ion-fab  vertical="bottom" horizontal='end' slot='fixed'>
+    <ion-fab-button [disabled]="(!title || title.length === 0) && (!language || title.length === 0) &&
+                                (!releaseYear || releaseYear.length === 0 && releaseYear.typeof !== 'number') "
+                                color="fab" (click)="updateSet()" >
+      <ion-icon name='checkmark-circle' ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

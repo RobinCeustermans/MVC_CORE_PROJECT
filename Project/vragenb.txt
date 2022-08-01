@@ -1,0 +1,3 @@
+Hoe verwijder je een medeEigenaarObject als deze enkel een id heeft dat bestaat uit een samengestelde PK?
+
+Hoe weergeef je objecten uit een andere colom (bv de tussen entiteit medeEiegenaarVerzamelObject bij een object)?

@@ -1,0 +1,1 @@
+Server=baker.local.thomasmore.be\GSQLEDU01,45001;Database=r0666177;Trusted_Connection=False;User Id=r0666177;Password=Test123

@@ -1,0 +1,88 @@
+<form enctype="multipart/form-data" asp-action="CreateVerzamelObject">
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-8 text-center">
+            <label asp-for="Afbeelding" class="control-label"></label>
+            <div class="custom-file">
+                <input asp-for="Afbeelding" class="custom-file-input" id="customFile">
+                <label asp-for="Afbeelding" class="custom-file-label" for="customFile">Kies een afbeelding</label>
+            </div>
+            <span asp-validation-for="Afbeelding" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="Naam">Naam item</label>
+            <input asp-for="Naam" type="text" class="form-control">
+            <span asp-validation-for="Naam" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="CreatieJaar">Bouwjaar</label>
+            <input asp-for="CreatieJaar" type="text" class="form-control">
+            <span asp-validation-for="CreatieJaar" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label class="control-label">Categorie</label>
+            <select class="form-control" required="required" asp-items="Model.Categorieën" asp-for="CategorieID">
+                <option value="">Selecteer een categorie</option>
+            </select>
+            <br />
+            <span asp-validation-for="CategorieID" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label class="control-label">Merk</label>
+            <select class="form-control" asp-items="Model.Merken" asp-for="MerkID">
+                <option value="">Selecteer een merk</option>
+            </select>
+            <br />
+            <span asp-validation-for="MerkID" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="AankoopPrijs">Aankoopprijs</label>
+            <input asp-for="AankoopPrijs" type="text" class="form-control">
+            <span asp-validation-for="AankoopPrijs" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-6">
+            <label asp-for="Waarde">Actuele waarde</label>
+            <input asp-for="Waarde" type="text" class="form-control">
+            <span asp-validation-for="Waarde" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label asp-for="Breedte_Cm">Breedte</label>
+            <input asp-for="Breedte_Cm" type="text" class="form-control">
+            <span asp-validation-for="Breedte_Cm" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Hoogte_Cm">Hoogte</label>
+            <input asp-for="Hoogte_Cm" type="text" class="form-control">
+            <span asp-validation-for="Hoogte_Cm" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-4">
+            <label asp-for="Lengte_Cm">Lengte</label>
+            <input asp-for="Lengte_Cm" type="text" class="form-control">
+            <span asp-validation-for="Lengte_Cm" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-row">
+
+        <div class="form-group col-md-12">
+            <label asp-for="Beschrijving">Beschrijving</label>
+            <textarea asp-for="Beschrijving" class="form-control" rows="5" placeholder="vul hier bijkomde informatie over het voorwerp, bijvoorbeeld de staat"></textarea>
+            <span asp-validation-for="Beschrijving" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group" id="">
+        <input type="submit" value="Maak verzamelobject aan" class="btn btn-primary" />
+    </div>
+</form>
